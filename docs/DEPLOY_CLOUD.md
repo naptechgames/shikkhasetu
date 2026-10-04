@@ -11,9 +11,14 @@ Android app ──https──▶ Render web service (Docker: Spring Boot) ──
   Data API cannot reach them. Only the backend talks to the database.
 * `render.yaml` (repository root) describes the service; `backend/Dockerfile` builds it.
 
-**Status: prepared, NOT yet deployed or verified.** Done so far: Supabase project + schema, private
-GitHub repository, Render blueprint. The backend has never been run against PostgreSQL, and the
-Docker build has never been run (no Docker on the development PC).
+**Status (2026-10-05): deployed and running at <https://shikkhasetu.onrender.com>.**
+
+Checked against the live server: health, student registration and login, 401 without a token,
+offering an item (hidden until reviewed), 403 for coordinator-only actions as a student, input
+validation, dashboard, logout. The database shows the tables in schema `shikkhasetu` with one
+coordinator. **Not yet checked on the live server:** the coordinator actions (review, approve,
+handover, return) and the concurrent-approval rule on PostgreSQL - the automated tests for those
+run on H2 only.
 
 (Hugging Face Spaces was tried first; Docker Spaces are no longer available on its free plan.)
 

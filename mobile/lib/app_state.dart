@@ -13,6 +13,8 @@ class AppState extends ChangeNotifier {
   /// http://192.168.x.x:8080 for a backend on a laptop in the same Wi-Fi.
   static const defaultBaseUrl = 'https://shikkhasetu.onrender.com';
 
+  static const _oldDefaults = {'http://192.168.0.100:8080', 'https://naptechgames-shikkhasetu.hf.space'};
+
   String baseUrl = defaultBaseUrl;
   String? token;
   User? user;
@@ -24,7 +26,10 @@ class AppState extends ChangeNotifier {
 
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
-    baseUrl = prefs.getString('baseUrl') ?? defaultBaseUrl;
+    final savedUrl = prefs.getString('baseUrl');
+    // Addresses that earlier versions of the app saved as their default are
+    // ignored, so an updated app moves to the current server by itself.
+    baseUrl = (savedUrl == null || _oldDefaults.contains(savedUrl)) ? defaultBaseUrl : savedUrl;
     token = prefs.getString('token');
     final savedUser = prefs.getString('user');
     user = savedUser == null ? null : User.fromJson(jsonDecode(savedUser) as Map<String, dynamic>);
@@ -35,7 +40,11 @@ class AppState extends ChangeNotifier {
   Future<void> setBaseUrl(String url) async {
     baseUrl = url.trim().replaceAll(RegExp(r'/+$'), '');
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('baseUrl', baseUrl);
+    if (baseUrl == defaultBaseUrl) {
+      await prefs.remove('baseUrl'); // only an address the user changed is remembered
+    } else {
+      await prefs.setString('baseUrl', baseUrl);
+    }
     notifyListeners();
   }
 

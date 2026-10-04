@@ -26,7 +26,7 @@ reviews listings, approves requests, hands items over and records returns.
 | APK installed and used on a real Android phone | **NOT done — not verified** |
 | Phone ↔ laptop connection over Wi-Fi | **NOT tested** |
 | MySQL profile | **Written, NOT run** (no MySQL server on the development laptop) |
-| Cloud deployment (Render + Supabase PostgreSQL), see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md) | **Prepared, NOT yet deployed or verified.** The backend has never been run against PostgreSQL. |
+| Cloud deployment (Render + Supabase PostgreSQL), see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md) | **Deployed and running** at `https://shikkhasetu.onrender.com`; student-side API checked live. Coordinator actions and the concurrent-approval rule are **not yet verified on PostgreSQL**. |
 | Real e-mail sending | **Not implemented** — the e-mail channel is a console stub |
 
 The app is a real multi-user client/server system (all data and rules are on the backend), but
