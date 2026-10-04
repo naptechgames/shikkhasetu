@@ -1,0 +1,13 @@
+﻿health: ok
+student login: role=STUDENT
+coordinator login: role=COORDINATOR
+search 'casio' + CALCULATOR + AVAILABLE: 1 item(s)
+all items visible to the student: 4
+request #1: PENDING
+student approve: refused with HTTP 403
+coordinator approve: APPROVED, item RESERVED, code shown to coordinator: False
+student sees the pickup code: True
+handover: HANDED_OVER, item ON_LOAN, due 2026-10-12
+return: RETURNED, item AVAILABLE
+student notifications: 3
+dashboard: {"availableItems":4,"pendingRequests":0,"completedDonations":0,"activeLoans":0,"completedLoans":1,"overdueLoans":0,"uniqueRecipients":1}

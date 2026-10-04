@@ -1,0 +1,25 @@
+# Render "Blueprint": describes the cloud service so it can be created in one step.
+# Values marked "sync: false" are secrets; Render asks for them when the
+# Blueprint is applied and they are never stored in this repository.
+services:
+  - type: web
+    name: shikkhasetu
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: APP_SEED_COORDINATOR_EMAIL
+        sync: false
+      - key: APP_SEED_COORDINATOR_PASSWORD
+        sync: false
+      - key: APP_SEED_DEMO_DATA
+        value: "false"

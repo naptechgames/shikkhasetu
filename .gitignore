@@ -1,0 +1,16 @@
+# Backend
+backend/build/
+backend/.gradle/
+backend/data/
+backend/*.log
+
+# Flutter (mobile/.gitignore covers the rest)
+mobile/build/
+mobile/.dart_tool/
+
+# Large ready-made builds (APK, jar) - rebuild them, see README
+release/
+
+# Tool state and Office lock files
+.claude-flow/
+~$*

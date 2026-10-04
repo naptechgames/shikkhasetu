@@ -1,0 +1,190 @@
+> Task :cleanTest
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+> Task :bootJar
+> Task :compileTestJava
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :test
+
+ApiBlackBoxTest > search_filtersByTextCategoryAndMode() PASSED
+
+ApiBlackBoxTest > protectedEndpoint_withoutToken_is401() PASSED
+
+ApiBlackBoxTest > request_forUnknownItem_is404_andWithoutItemId_is400() PASSED
+
+ApiBlackBoxTest > donationRequest_needsNoLoanPeriod() PASSED
+
+ApiBlackBoxTest > createItem_missingOrInvalidField_is400(String) > [1] body={"category":"BOOK","mode":"LOAN","condition":"GOOD"} PASSED
+
+ApiBlackBoxTest > createItem_missingOrInvalidField_is400(String) > [2] body={"title":" ","category":"BOOK","mode":"LOAN","condition":"GOOD"} PASSED
+
+ApiBlackBoxTest > createItem_missingOrInvalidField_is400(String) > [3] body={"title":"T","mode":"LOAN","condition":"GOOD"} PASSED
+
+ApiBlackBoxTest > createItem_missingOrInvalidField_is400(String) > [4] body={"title":"T","category":"LAPTOP","mode":"LOAN","condition":"GOOD"} PASSED
+
+ApiBlackBoxTest > createItem_missingOrInvalidField_is400(String) > [5] body={"title":"T","category":"BOOK","condition":"GOOD"} PASSED
+
+ApiBlackBoxTest > logout_invalidatesTheToken() PASSED
+
+ApiBlackBoxTest > protectedEndpoint_withInvalidToken_is401() PASSED
+
+ApiBlackBoxTest > login_withWrongPassword_is401() PASSED
+
+ApiBlackBoxTest > loanPeriod_boundaryValues(int, int) > [1] loanDays=0, expectedStatus=400 PASSED
+
+ApiBlackBoxTest > loanPeriod_boundaryValues(int, int) > [2] loanDays=1, expectedStatus=201 PASSED
+
+ApiBlackBoxTest > loanPeriod_boundaryValues(int, int) > [3] loanDays=30, expectedStatus=201 PASSED
+
+ApiBlackBoxTest > loanPeriod_boundaryValues(int, int) > [4] loanDays=31, expectedStatus=400 PASSED
+
+ApiBlackBoxTest > loanPeriod_boundaryValues(int, int) > [5] loanDays=-5, expectedStatus=400 PASSED
+
+ApiBlackBoxTest > register_missingOrInvalidField_is400(String) > [1] body={"email":"a@test.local","password":"secret123"} PASSED
+
+ApiBlackBoxTest > register_missingOrInvalidField_is400(String) > [2] body={"name":"A","password":"secret123"} PASSED
+
+ApiBlackBoxTest > register_missingOrInvalidField_is400(String) > [3] body={"name":"A","email":"not-an-email","password":"secret123"} PASSED
+
+ApiBlackBoxTest > register_missingOrInvalidField_is400(String) > [4] body={"name":"A","email":"a@test.local"} PASSED
+
+ApiBlackBoxTest > coordinator_cannotRequestItems() PASSED
+
+ApiBlackBoxTest > health_isPublic() PASSED
+
+ApiBlackBoxTest > register_duplicateEmail_is409() PASSED
+
+ApiBlackBoxTest > student_cannotUseCoordinatorActions() PASSED
+
+ApiBlackBoxTest > selfRegistration_alwaysCreatesAStudent() PASSED
+
+ApiBlackBoxTest > loanScenario_endToEnd() PASSED
+
+ApiBlackBoxTest > pickupCode_isVisibleToTheRequesterOnly() PASSED
+
+ApiBlackBoxTest > register_passwordLengthBoundary(String, int) > [1] password=12345, expectedStatus=400 PASSED
+
+ApiBlackBoxTest > register_passwordLengthBoundary(String, int) > [2] password=123456, expectedStatus=201 PASSED
+
+ApiBlackBoxTest > loanRequest_withoutLoanPeriod_is400() PASSED
+
+ApiBlackBoxTest > duplicateActiveRequest_is409() PASSED
+
+ApiBlackBoxTest > student_cannotReadOrCancelAnotherStudentsRequest() PASSED
+
+WorkflowIntegrationTest > donation_fullLifecycle_andOtherPendingRequestsAreClosed() PASSED
+
+WorkflowIntegrationTest > cancellingAnApprovedRequest_releasesTheReservation() PASSED
+
+WorkflowIntegrationTest > studentListing_needsCoordinatorReview_beforeItIsVisible() PASSED
+
+WorkflowIntegrationTest > secondApprovalForTheSameItem_isRefused() PASSED
+
+WorkflowIntegrationTest > approval_reservesItem_notifiesStudent_andWritesAuditLog() PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 1 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 2 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 3 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 4 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 5 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 6 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 7 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 8 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 9 of 10 PASSED
+
+WorkflowIntegrationTest > concurrentApprovals_produceExactlyOneAllocation() > repetition 10 of 10 PASSED
+
+WorkflowIntegrationTest > failureInAnObserver_rollsBackTheWholeApproval() PASSED
+
+WorkflowIntegrationTest > loan_fullLifecycle_requestToReturn() PASSED
+
+AllocationPolicyTest > firstComeFirstServed_ignoresTheCoordinatorChoice() PASSED
+
+AllocationPolicyTest > coordinatorChoice_returnsNullWhenTheChosenRequestIsNotPending() PASSED
+
+AllocationPolicyTest > coordinatorChoice_picksTheChosenRequest() PASSED
+
+AllocationPolicyTest > firstComeFirstServed_returnsNullWhenNobodyIsWaiting() PASSED
+
+AllocationPolicyTest > firstComeFirstServed_picksTheOldestRequest() PASSED
+
+ObserverAndAdapterTest > observer_everySubscriberReceivesThePublishedEvent() PASSED
+
+ObserverAndAdapterTest > adapter_isDisabledByDefaultSetting() PASSED
+
+ObserverAndAdapterTest > observer_unsubscribedListenerReceivesNothing() PASSED
+
+ObserverAndAdapterTest > adapter_translatesANotificationIntoAnEmailDelivery() PASSED
+
+WorkflowTest > overdue_isFalseAfterReturn() PASSED
+
+WorkflowTest > loanDays_areRequiredForALoan() PASSED
+
+WorkflowTest > donationHandover_marksItemDonatedWithoutDueDate() PASSED
+
+WorkflowTest > donationReturn_isNotAllowed() PASSED
+
+WorkflowTest > overdue_boundaryAroundTheDueDate() PASSED
+
+WorkflowTest > loanDays_outsideTheRangeAreRefused(int) > [1] days=-1 PASSED
+
+WorkflowTest > loanDays_outsideTheRangeAreRefused(int) > [2] days=0 PASSED
+
+WorkflowTest > loanDays_outsideTheRangeAreRefused(int) > [3] days=31 PASSED
+
+WorkflowTest > loanDays_outsideTheRangeAreRefused(int) > [4] days=365 PASSED
+
+WorkflowTest > loanHandover_putsItemOnLoanAndSetsDueDate() PASSED
+
+WorkflowTest > loanReturn_makesItemAvailableAgainAndRecordsCondition() PASSED
+
+WorkflowTest > loanDays_areIgnoredForADonation() PASSED
+
+WorkflowTest > factoryMethod_createsDonationWorkflowForDonationItems() PASSED
+
+WorkflowTest > factoryMethod_createsLoanWorkflowForLoanItems() PASSED
+
+WorkflowTest > loanDays_insideTheRangeAreAccepted(int) > [1] days=1 PASSED
+
+WorkflowTest > loanDays_insideTheRangeAreAccepted(int) > [2] days=2 PASSED
+
+WorkflowTest > loanDays_insideTheRangeAreAccepted(int) > [3] days=15 PASSED
+
+WorkflowTest > loanDays_insideTheRangeAreAccepted(int) > [4] days=29 PASSED
+
+WorkflowTest > loanDays_insideTheRangeAreAccepted(int) > [5] days=30 PASSED
+
+AllocateBasisPathTest > path3_itemAlreadyAllocated() PASSED
+
+AllocateBasisPathTest > path2_unknownItem() PASSED
+
+AllocateBasisPathTest > path5_successfulAllocation() PASSED
+
+AllocateBasisPathTest > path4_noPendingRequest() PASSED
+
+AllocateBasisPathTest > path1_studentIsRefused() PASSED
+
+2026-10-05T02:57:16.770+06:00  INFO 55100 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-05T02:57:17.224+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-05T02:57:17.231+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-05T02:57:17.240+06:00  INFO 55100 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-05T02:57:17.243+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-10-05T02:57:17.244+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+
+> Task :jacocoTestReport
+
+BUILD SUCCESSFUL in 35s
+9 actionable tasks: 8 executed, 1 up-to-date

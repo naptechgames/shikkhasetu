@@ -1,0 +1,108 @@
+ShikkhaSetu backend - JUnit results
+Run: 2026-10-05 02:29 | Gradle exit code: 0
+JDK: Temurin 17.0.20.1 | Database: H2 in-memory
+
+bd.bubt.shikkhasetu.blackbox.ApiBlackBoxTest  (tests=33, failures=0, errors=0, skipped=0, time=11.332s)
+    [PASS] search_filtersByTextCategoryAndMode()
+    [PASS] protectedEndpoint_withoutToken_is401()
+    [PASS] request_forUnknownItem_is404_andWithoutItemId_is400()
+    [PASS] donationRequest_needsNoLoanPeriod()
+    [PASS] [1] body={"category":"BOOK","mode":"LOAN","condition":"GOOD"}
+    [PASS] [2] body={"title":" ","category":"BOOK","mode":"LOAN","condition":"GOOD"}
+    [PASS] [3] body={"title":"T","mode":"LOAN","condition":"GOOD"}
+    [PASS] [4] body={"title":"T","category":"LAPTOP","mode":"LOAN","condition":"GOOD"}
+    [PASS] [5] body={"title":"T","category":"BOOK","condition":"GOOD"}
+    [PASS] logout_invalidatesTheToken()
+    [PASS] protectedEndpoint_withInvalidToken_is401()
+    [PASS] login_withWrongPassword_is401()
+    [PASS] [1] loanDays=0, expectedStatus=400
+    [PASS] [2] loanDays=1, expectedStatus=201
+    [PASS] [3] loanDays=30, expectedStatus=201
+    [PASS] [4] loanDays=31, expectedStatus=400
+    [PASS] [5] loanDays=-5, expectedStatus=400
+    [PASS] [1] body={"email":"a@test.local","password":"secret123"}
+    [PASS] [2] body={"name":"A","password":"secret123"}
+    [PASS] [3] body={"name":"A","email":"not-an-email","password":"secret123"}
+    [PASS] [4] body={"name":"A","email":"a@test.local"}
+    [PASS] coordinator_cannotRequestItems()
+    [PASS] health_isPublic()
+    [PASS] register_duplicateEmail_is409()
+    [PASS] student_cannotUseCoordinatorActions()
+    [PASS] selfRegistration_alwaysCreatesAStudent()
+    [PASS] loanScenario_endToEnd()
+    [PASS] pickupCode_isVisibleToTheRequesterOnly()
+    [PASS] [1] password=12345, expectedStatus=400
+    [PASS] [2] password=123456, expectedStatus=201
+    [PASS] loanRequest_withoutLoanPeriod_is400()
+    [PASS] duplicateActiveRequest_is409()
+    [PASS] student_cannotReadOrCancelAnotherStudentsRequest()
+
+bd.bubt.shikkhasetu.integration.WorkflowIntegrationTest  (tests=17, failures=0, errors=0, skipped=0, time=3.383s)
+    [PASS] donation_fullLifecycle_andOtherPendingRequestsAreClosed()
+    [PASS] cancellingAnApprovedRequest_releasesTheReservation()
+    [PASS] studentListing_needsCoordinatorReview_beforeItIsVisible()
+    [PASS] secondApprovalForTheSameItem_isRefused()
+    [PASS] approval_reservesItem_notifiesStudent_andWritesAuditLog()
+    [PASS] repetition 1 of 10
+    [PASS] repetition 2 of 10
+    [PASS] repetition 3 of 10
+    [PASS] repetition 4 of 10
+    [PASS] repetition 5 of 10
+    [PASS] repetition 6 of 10
+    [PASS] repetition 7 of 10
+    [PASS] repetition 8 of 10
+    [PASS] repetition 9 of 10
+    [PASS] repetition 10 of 10
+    [PASS] failureInAnObserver_rollsBackTheWholeApproval()
+    [PASS] loan_fullLifecycle_requestToReturn()
+
+bd.bubt.shikkhasetu.unit.AllocationPolicyTest  (tests=5, failures=0, errors=0, skipped=0, time=0.006s)
+    [PASS] firstComeFirstServed_ignoresTheCoordinatorChoice()
+    [PASS] coordinatorChoice_returnsNullWhenTheChosenRequestIsNotPending()
+    [PASS] coordinatorChoice_picksTheChosenRequest()
+    [PASS] firstComeFirstServed_returnsNullWhenNobodyIsWaiting()
+    [PASS] firstComeFirstServed_picksTheOldestRequest()
+
+bd.bubt.shikkhasetu.unit.ObserverAndAdapterTest  (tests=4, failures=0, errors=0, skipped=0, time=0.009s)
+    [PASS] observer_everySubscriberReceivesThePublishedEvent()
+    [PASS] adapter_isDisabledByDefaultSetting()
+    [PASS] observer_unsubscribedListenerReceivesNothing()
+    [PASS] adapter_translatesANotificationIntoAnEmailDelivery()
+
+bd.bubt.shikkhasetu.unit.WorkflowTest  (tests=19, failures=0, errors=0, skipped=0, time=0.032s)
+    [PASS] overdue_isFalseAfterReturn()
+    [PASS] loanDays_areRequiredForALoan()
+    [PASS] donationHandover_marksItemDonatedWithoutDueDate()
+    [PASS] donationReturn_isNotAllowed()
+    [PASS] overdue_boundaryAroundTheDueDate()
+    [PASS] [1] days=-1
+    [PASS] [2] days=0
+    [PASS] [3] days=31
+    [PASS] [4] days=365
+    [PASS] loanHandover_putsItemOnLoanAndSetsDueDate()
+    [PASS] loanReturn_makesItemAvailableAgainAndRecordsCondition()
+    [PASS] loanDays_areIgnoredForADonation()
+    [PASS] factoryMethod_createsDonationWorkflowForDonationItems()
+    [PASS] factoryMethod_createsLoanWorkflowForLoanItems()
+    [PASS] [1] days=1
+    [PASS] [2] days=2
+    [PASS] [3] days=15
+    [PASS] [4] days=29
+    [PASS] [5] days=30
+
+bd.bubt.shikkhasetu.whitebox.AllocateBasisPathTest  (tests=5, failures=0, errors=0, skipped=0, time=2.503s)
+    [PASS] path3_itemAlreadyAllocated()
+    [PASS] path2_unknownItem()
+    [PASS] path5_successfulAllocation()
+    [PASS] path4_noPendingRequest()
+    [PASS] path1_studentIsRefused()
+
+TOTAL: 83 tests, 0 failed
+
+JaCoCo coverage (all backend classes): branch 116/148 = 78.4%, line 473/526 = 89.9%
+  RequestService: branch 34/46, line 85/99
+  ItemService: branch 12/18, line 25/28
+  AuthService: branch 8/10, line 23/23
+  LoanWorkflow: branch 6/6, line 15/15
+  AllocationPolicy.CoordinatorChoice: branch 4/4, line 6/6
+  AllocationPolicy.FirstComeFirstServed: branch 2/2, line 2/2

@@ -1,0 +1,14 @@
+﻿00:00 +0: loading E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart
+00:00 +0: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart: login sends the credentials and returns token and user
+00:00 +1: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart: search sends the token and only the filters that are set
+00:00 +2: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart: a loan request sends item id and loan days
+00:00 +3: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart: an error answer becomes an ApiException with the server message
+00:00 +4: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/api_client_test.dart: a network failure becomes an ApiException with status 0
+00:00 +5: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: empty form shows validation messages and does not call the server
+00:00 +6: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: empty form shows validation messages and does not call the server
+00:00 +7: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: empty form shows validation messages and does not call the server
+00:00 +8: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: empty form shows validation messages and does not call the server
+00:00 +9: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: empty form shows validation messages and does not call the server
+00:01 +10: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: password boundary: 5 characters is refused, 6 is accepted by the form
+00:01 +11: E:/Suzana Software Enginering CSE 327 Course Project/mobile/test/login_screen_test.dart: switching to registration shows the name field
+00:01 +12: All tests passed!
