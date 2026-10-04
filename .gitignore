@@ -14,3 +14,6 @@ release/
 # Tool state and Office lock files
 .claude-flow/
 ~$*
+
+# Local accounts and passwords
+backend/config/application.properties

@@ -1,13 +1,19 @@
-> Task :cleanTest
-> Task :compileJava
+﻿> Task :compileJava
 > Task :processResources
 > Task :classes
 > Task :resolveMainClassName
 > Task :bootJar
-> Task :compileTestJava
+> Task :compileTestJava UP-TO-DATE
 > Task :processTestResources UP-TO-DATE
-> Task :testClasses
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+> Task :testClasses UP-TO-DATE
+gradlew.bat : OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap 
+classpath has been appended
+At line:10 char:1
++ & "$b\gradlew.bat" test bootJar --console=plain *> "$root\docs\test-e ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (OpenJDK 64-Bit ...s been appended:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
 
 > Task :test
 
@@ -177,14 +183,14 @@ AllocateBasisPathTest > path4_noPendingRequest() PASSED
 
 AllocateBasisPathTest > path1_studentIsRefused() PASSED
 
-2026-10-05T02:57:16.770+06:00  INFO 55100 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-10-05T02:57:17.224+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-10-05T02:57:17.231+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-10-05T02:57:17.240+06:00  INFO 55100 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-10-05T02:57:17.243+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2026-10-05T02:57:17.244+06:00  INFO 55100 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-10-05T03:36:47.395+06:00  INFO 38204 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-05T03:36:47.850+06:00  INFO 38204 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-05T03:36:47.854+06:00  INFO 38204 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-05T03:36:47.864+06:00  INFO 38204 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-05T03:36:47.865+06:00  INFO 38204 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-10-05T03:36:47.867+06:00  INFO 38204 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
 
 > Task :jacocoTestReport
 
-BUILD SUCCESSFUL in 35s
-9 actionable tasks: 8 executed, 1 up-to-date
+BUILD SUCCESSFUL in 28s
+8 actionable tasks: 6 executed, 2 up-to-date

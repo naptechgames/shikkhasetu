@@ -22,15 +22,15 @@ public class DataSeeder implements CommandLineRunner {
     private final AuthService authService;
     private final ItemService itemService;
 
-    @Value("${app.seed.coordinator-email}")
+    @Value("${app.seed.coordinator-email:}")
     private String coordinatorEmail;
-    @Value("${app.seed.coordinator-password}")
+    @Value("${app.seed.coordinator-password:}")
     private String coordinatorPassword;
     @Value("${app.seed.demo-data:false}")
     private boolean demoData;
-    @Value("${app.seed.student-email}")
+    @Value("${app.seed.student-email:}")
     private String studentEmail;
-    @Value("${app.seed.student-password}")
+    @Value("${app.seed.student-password:}")
     private String studentPassword;
 
     public DataSeeder(UserRepository users, AuthService authService, ItemService itemService) {
@@ -44,9 +44,14 @@ public class DataSeeder implements CommandLineRunner {
         if (!users.findByRole(Role.COORDINATOR).isEmpty()) {
             return; // already seeded
         }
+        if (coordinatorEmail.isBlank() || coordinatorPassword.isBlank()) {
+            System.out.println("[SEED] No coordinator configured (app.seed.coordinator-email/-password). "
+                    + "Nobody can approve requests until one is set. See README.");
+            return;
+        }
         User coordinator = authService.createUser("Club Coordinator", coordinatorEmail, coordinatorPassword,
                 Role.COORDINATOR);
-        if (!demoData) {
+        if (!demoData || studentEmail.isBlank() || studentPassword.isBlank()) {
             return;
         }
         authService.createUser("Demo Student", studentEmail, studentPassword, Role.STUDENT);

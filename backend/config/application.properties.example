@@ -1,0 +1,6 @@
+# Copy this file to application.properties (same folder) and choose your own passwords.
+app.seed.coordinator-email=coordinator@shikkhasetu.test
+app.seed.coordinator-password=CHANGE-ME
+app.seed.demo-data=true
+app.seed.student-email=student@shikkhasetu.test
+app.seed.student-password=CHANGE-ME

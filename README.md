@@ -90,8 +90,8 @@ The server listens on port 8080 on all network interfaces. Check: open
 
 On the first start it creates a coordinator account, a demo student and four synthetic demo items.
 The e-mail addresses and passwords of these **demo accounts** are in
-[`backend/src/main/resources/application.properties`](backend/src/main/resources/application.properties)
-(`app.seed.*`). Change them before any real use. New students register inside the app; coordinators
+`backend/config/application.properties` (`app.seed.*`). That file is not in the repository: copy
+`backend/config/application.properties.example` to that name and choose passwords. New students register inside the app; coordinators
 can only be created through this seed setting.
 
 **Using MySQL instead of H2** (not tested, see status table): create a database `shikkhasetu`, set

@@ -4,7 +4,7 @@
 param([string]$Server = 'http://127.0.0.1:8080')
 
 $base = "$Server/api"
-$propsFile = Join-Path $PSScriptRoot '..\backend\src\main\resources\application.properties'
+$propsFile = Join-Path $PSScriptRoot '..\backend\config\application.properties'
 $props = @{}
 Get-Content $propsFile | Where-Object { $_ -match '^app\.seed\.[^=]+=' } | ForEach-Object {
     $k, $v = $_ -split '=', 2; $props[$k] = $v
