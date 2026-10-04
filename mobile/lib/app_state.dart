@@ -11,7 +11,7 @@ import 'models.dart';
 class AppState extends ChangeNotifier {
   /// The cloud backend. It can still be changed on the login screen, e.g. to
   /// http://192.168.x.x:8080 for a backend on a laptop in the same Wi-Fi.
-  static const defaultBaseUrl = 'https://naptechgames-shikkhasetu.hf.space';
+  static const defaultBaseUrl = 'https://shikkhasetu.onrender.com';
 
   String baseUrl = defaultBaseUrl;
   String? token;

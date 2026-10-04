@@ -26,7 +26,7 @@ reviews listings, approves requests, hands items over and records returns.
 | APK installed and used on a real Android phone | **NOT done — not verified** |
 | Phone ↔ laptop connection over Wi-Fi | **NOT tested** |
 | MySQL profile | **Written, NOT run** (no MySQL server on the development laptop) |
-| Cloud deployment (Hugging Face Space + Supabase PostgreSQL), see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md) | **Prepared, NOT yet deployed or verified.** The backend has never been run against PostgreSQL. |
+| Cloud deployment (Render + Supabase PostgreSQL), see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md) | **Prepared, NOT yet deployed or verified.** The backend has never been run against PostgreSQL. |
 | Real e-mail sending | **Not implemented** — the e-mail channel is a console stub |
 
 The app is a real multi-user client/server system (all data and rules are on the backend), but
@@ -121,7 +121,7 @@ adb install -r release\ShikkhaSetu-1.0.0.apk
 **Connect the app to the backend**
 
 The app's default server address is the cloud backend
-(`https://naptechgames-shikkhasetu.hf.space`, see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md)),
+(`https://shikkhasetu.onrender.com`, see [`docs/DEPLOY_CLOUD.md`](docs/DEPLOY_CLOUD.md)),
 which works from any network once it is deployed. To use a backend on the laptop instead:
 
 1. Find the laptop's Wi-Fi address: `ipconfig` → "IPv4 Address", e.g. `192.168.88.249`.
