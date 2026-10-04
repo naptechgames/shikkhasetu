@@ -17,3 +17,8 @@ release/
 
 # Local accounts and passwords
 backend/config/application.properties
+
+# Personal presentation notes (kept on this PC only)
+docs/PRESENTATION_SCRIPT_BN.md
+documents/Presentation_Script_Bangla.docx
+documents/Viva_Notes_Bangla.docx

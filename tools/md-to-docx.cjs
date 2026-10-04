@@ -10,6 +10,7 @@ const blue = '173B59';
 
 // **bold** and `code` inside a line become formatted runs.
 function runs(text, base = {}) {
+  text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/<(https?:[^>]+)>/g, '$1'); // links -> plain text
   return text.split(/(\*\*[^*]+\*\*|`[^`]+`)/).filter(Boolean).map((part) => {
     if (part.startsWith('**')) return new TextRun({ ...base, text: part.slice(2, -2), bold: true });
     if (part.startsWith('`')) return new TextRun({ ...base, text: part.slice(1, -1), font: 'Consolas' });
@@ -55,7 +56,15 @@ for (let i = 0; i < lines.length; i++) {
     children.push(new Paragraph({ heading: HeadingLevel.TITLE, children: runs(line.slice(2)) }));
   } else if (line.startsWith('## ')) {
     children.push(new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, spacing: { before: 240, after: 100 }, children: runs(line.slice(3)) }));
-  } else if (/^\* /.test(line)) {
+  } else if (line.startsWith('### ')) {
+    children.push(new Paragraph({ keepNext: true, spacing: { before: 160, after: 80 }, children: runs(line.slice(4), { bold: true, size: 24, color: blue }) }));
+  } else if (/^-{3,}\s*$/.test(line)) {
+    // horizontal rule: skipped
+  } else if (line.startsWith('> ')) {
+    let text = line.slice(2);
+    while (i + 1 < lines.length && lines[i + 1].startsWith('> ')) text += ' ' + lines[++i].slice(2);
+    children.push(new Paragraph({ indent: { left: 360 }, spacing: { after: 120 }, children: runs(text, { italics: true }) }));
+  } else if (/^[*-] /.test(line)) {
     let text = line.slice(2);
     while (i + 1 < lines.length && /^  \S/.test(lines[i + 1])) text += ' ' + lines[++i].trim();
     children.push(new Paragraph({ bullet: { level: 0 }, spacing: { after: 60 }, children: runs(text) }));
@@ -65,7 +74,7 @@ for (let i = 0; i < lines.length; i++) {
     children.push(new Paragraph({ indent: { left: 360, hanging: 360 }, spacing: { after: 60 }, children: runs(text) }));
   } else if (line.trim() !== '') {
     let text = line;
-    while (i + 1 < lines.length && lines[i + 1].trim() !== '' && !/^(#|\||\*|\d+\.|```)/.test(lines[i + 1])) text += ' ' + lines[++i];
+    while (i + 1 < lines.length && lines[i + 1].trim() !== '' && !/^(#|\||\*|- |> |\d+\.|```)/.test(lines[i + 1])) text += ' ' + lines[++i];
     children.push(new Paragraph({ spacing: { after: 120 }, children: runs(text) }));
   }
 }
